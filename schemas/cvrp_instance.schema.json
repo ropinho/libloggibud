@@ -1,0 +1,23 @@
+{
+    "name": { "type": "string" },
+    "region": { "type": "string" },
+    "origin": {
+        "lng": { "type": "number" },
+        "lat": { "type": "number" }
+    },
+    "vechicle_capacity": { "type": "integer" },
+    "deliveries": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "point": {
+                    "lng": { "type": "number" },
+                    "lat": { "type": "number" }
+                },
+                "size": { "type": "integer" }
+            }
+        }
+    }
+}

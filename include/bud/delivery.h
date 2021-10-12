@@ -1,5 +1,5 @@
-#ifndef LOGGIBUD_CPP_DELIVERY_H_
-#define LOGGIBUD_CPP_DELIVERY_H_
+#ifndef LOGGIBUD_CXX_DELIVERY_H_
+#define LOGGIBUD_CXX_DELIVERY_H_
 
 #include <string>
 using std::string;
