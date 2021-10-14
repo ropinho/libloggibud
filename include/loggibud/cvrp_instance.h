@@ -1,10 +1,13 @@
 #ifndef LOGGIBUD_CXX_CVRPINSTANCE_H_
 #define LOGGIBUD_CXX_CVRPINSTANCE_H_
 
+#include <fstream>
 #include <string>
 #include <vector>
 using std::string;
 using std::vector;
+
+#include <rapidjson/document.h>
 
 #include "point.h"
 #include "delivery.h"
@@ -12,7 +15,7 @@ using std::vector;
 
 namespace bud
 {
-    class CVRPInstance : public JSONDataclassMixin<CVRPInstance> {
+    class CVRPInstance {
     public:
         string name;
         string region;
@@ -20,12 +23,25 @@ namespace bud
         size_t vehicle_capacity;
         vector<Delivery> deliveries;
 
-        CVRPInstance from_file(string filname) final {
-            return CVRPInstance();
-        }
-
-        void to_file(string filename) final {}
+        static CVRPInstance from_file(string filename);
+        static void to_file(string filename);
     };
+}
+
+bud::CVRPInstance bud::CVRPInstance::from_file(std::string filename) {
+    std::ifstream file(filename);
+    if (file.is_open()) {
+        string filecontent = string(
+            std::istreambuf_iterator<char>(),
+            std::istreambuf_iterator<char>(file)
+        );
+        file.close();
+
+        rapidjson::Document d;
+        d.Parse(filecontent.c_str());
+
+        // TODO: Finalize CVRPInstance JSON parsing.
+    }
 }
 
 #endif
