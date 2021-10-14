@@ -3,8 +3,10 @@ project(LoggiBUD-Types VERSION "1.0")
 
 include(GNUInstallDirs)
 
+add_subdirectory(examples)
+
 file(GLOB LOGGIBUD_TYPES_HEADERS "src/*.h")
-file(GLOB LOGGIBUD_TYPES_SOURCES "src/*.cpp")
+# file(GLOB LOGGIBUD_TYPES_SOURCES "src/*.cpp")
 
 install(
     FILES LOGGIBUD_TYPES_HEADERS 
