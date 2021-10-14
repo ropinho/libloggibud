@@ -1,5 +1,5 @@
-#ifndef LOGGIBUD_CPP_POINT_H_
-#define LOGGIBUD_CPP_POINT_H_
+#ifndef LOGGIBUD_CXX_POINT_H_
+#define LOGGIBUD_CXX_POINT_H_
 
 namespace bud
 {

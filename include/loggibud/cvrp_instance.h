@@ -1,5 +1,5 @@
-#ifndef LOGGIBUD_CPP_CVRPINSTANCE_H_
-#define LOGGIBUD_CPP_CVRPINSTANCE_H_
+#ifndef LOGGIBUD_CXX_CVRPINSTANCE_H_
+#define LOGGIBUD_CXX_CVRPINSTANCE_H_
 
 #include <string>
 #include <vector>
