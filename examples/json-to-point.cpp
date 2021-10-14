@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <bud/json/conversors.hpp>
+#include <loggibud/json/conversors.hpp>
+#include <loggibud/point.h>
 #include <rapidjson/document.h>
 
 int main(int argc, char const *argv[])
