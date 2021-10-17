@@ -7,12 +7,12 @@ using rapidjson::Value;
 #include "../point.h"
 #include "../delivery.h"
 
-namespace bud
+namespace loggibud
 {
     /**
      * Convert a rapidjson::Value to a Point instance
      * @param obj the value parsed from JSON with rapidjson 
-     * @returns a bud::Point */
+     * @returns a loggibud::Point */
     Point to_point(const Value &obj) {
         double lng = obj["lng"].GetDouble();
         double lat = obj["lat"].GetDouble();
@@ -22,15 +22,15 @@ namespace bud
     /**
      * Convert a rapidjson::Value to a Delivery instance
      * @param obj the value parsed from JSON with rapidjson 
-     * @returns a bud::Delivery */
+     * @returns a loggibud::Delivery */
     Delivery to_delivery(const Value &obj) {
         auto id = obj["id"].GetString();
-        auto point = bud::Point{
+        auto point = loggibud::Point{
             obj["point"].GetObject()["lng"].GetDouble(),
             obj["point"].GetObject()["lat"].GetDouble()
         };
         size_t size = obj["size"].GetUint64();
-        return bud::Delivery{ id, point, size };
+        return loggibud::Delivery{ id, point, size };
     }
 }
 

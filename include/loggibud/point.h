@@ -1,7 +1,7 @@
 #ifndef LOGGIBUD_CXX_POINT_H_
 #define LOGGIBUD_CXX_POINT_H_
 
-namespace bud
+namespace loggibud
 {
     struct Point {
         double lng;

@@ -9,7 +9,7 @@ using std::vector;
 #include "delivery.h"
 #include "json_dataclass_mixin.h"
 
-namespace bud
+namespace loggibud
 {
     class DeliveryProblemInstance
     : public JSONDataclassMixin<DeliveryProblemInstance> 

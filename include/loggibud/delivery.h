@@ -6,7 +6,7 @@ using std::string;
 
 #include "point.h"
 
-namespace bud
+namespace loggibud
 {
     struct Delivery {
         string id;

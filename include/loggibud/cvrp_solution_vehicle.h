@@ -9,7 +9,7 @@ using std::vector;
 #include "point.h"
 #include "delivery.h"
 
-namespace bud
+namespace loggibud
 {
     class CVRPSolutionVehicle {
     public:

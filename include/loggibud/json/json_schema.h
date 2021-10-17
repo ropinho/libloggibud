@@ -13,7 +13,7 @@ using rapidjson::Document;
 using rapidjson::SchemaDocument;
 using rapidjson::SchemaValidator;
 
-namespace bud::json
+namespace loggibud::json
 {
     class JSONSchema {
     public:
@@ -22,23 +22,34 @@ namespace bud::json
             if (schema_file.is_open()) {
                 auto text = std::string(
                     std::istreambuf_iterator<char>(schema_file),
-                    std::istreambuf_iterator<char>());
+                    std::istreambuf_iterator<char>()
+                );
+                this->document.Parse(text.c_str());
                 schema_file.close();
-                this->document_.Parse(text.c_str());
             } else {
                 throw std::runtime_error("Impossible open JSON Schema file");
             }
         }
 
         bool validate(const Document &document) {
-            SchemaDocument schema(this->document_);
+            SchemaDocument schema(this->document);
             SchemaValidator validator(schema);
             return document.Accept(validator);
         }
 
     protected:
-        Document document_;
-        bool is_configured_;
+        Document document;
+    };
+
+    /**
+     * @class CVRPInstanceSchema
+     * 
+     * Classe que armazena as definições de schema JSON para as instâncias de
+     * problemas de roteamentod e veículos com restrição de capacidade 
+     */
+    class CVRPIstanceSchema : public JSONSchema {
+    public:
+        CVRPIstanceSchema() : JSONSchema("../../cvrp_instance.schema.json") {}
     };
 
 }

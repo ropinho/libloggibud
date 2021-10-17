@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace bud
+namespace loggibud
 {
     template <class Dataclass>
     class JSONDataclassMixin {

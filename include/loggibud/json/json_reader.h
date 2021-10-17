@@ -7,24 +7,24 @@ using rapidjson::Value;
 #include "../delivery.h"
 #include "../point.h"
 
-namespace bud::json
+namespace loggiloggibud::json
 {
     class JSONReader {
     public:
-        static bud::Point read_point(Value &object) {
+        static loggibud::Point read_point(Value &object) {
             double lng = object["lng"].GetDouble();
             double lat = object["lat"].GetDouble();
-            return bud::Point{ lng, lat };
+            return loggibud::Point{ lng, lat };
         }
 
-        static bud::Delivery read_delivery(Value &object) {
+        static loggibud::Delivery read_delivery(Value &object) {
             auto id = object["id"].GetString();
-            auto point = bud::Point{
+            auto point = loggibud::Point{
                 object["point"].GetObject()["lng"].GetDouble(),
                 object["point"].GetObject()["lat"].GetDouble()
             };
             size_t size = object["size"].GetUint64();
-            return bud::Delivery{ id, point, size };
+            return loggibud::Delivery{ id, point, size };
         }
     };
 
