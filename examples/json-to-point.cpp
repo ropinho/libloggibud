@@ -4,8 +4,7 @@
 #include <loggibud/point.h>
 #include <rapidjson/document.h>
 
-int main(int argc, char const *argv[])
-{
+int main() {
     const char* jsonString = "{\"point\":{\"lng\":2.0,\"lat\":1.0}}";
     std::cout << jsonString << std::endl;
 
@@ -13,7 +12,7 @@ int main(int argc, char const *argv[])
     doc.Parse(jsonString);
 
     auto& pointValue = doc["point"];
-    auto point = bud::to_point(pointValue);
+    auto point = loggibud::to_point(pointValue);
 
     std::cout << "Longitude: " << point.lng << std::endl;
     std::cout << "Latitude: " << point.lat << std::endl;

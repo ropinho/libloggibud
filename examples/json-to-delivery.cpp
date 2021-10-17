@@ -4,8 +4,7 @@
 #include <loggibud/json/conversors.hpp>
 #include <loggibud/delivery.h>
 
-int main(int argc, char const *argv[])
-{
+int main() {
     const char* jsonString = "{\"delivery\":{\"id\":\"0123456abcdef\",\"point\":{\"lng\":2.0,\"lat\":1.0},\"size\":180}}";
     std::cout << jsonString << std::endl;
 
@@ -13,7 +12,7 @@ int main(int argc, char const *argv[])
     doc.Parse(jsonString);
 
     auto& deliveryValue = doc["delivery"];
-    bud::Delivery delivery = bud::to_delivery(deliveryValue);
+    loggibud::Delivery delivery = loggibud::to_delivery(deliveryValue);
 
     std::cout << "ID: " << delivery.id << std::endl;
     std::cout << "Point: ("
