@@ -13,6 +13,7 @@ using std::vector;
 #include "delivery.h"
 #include "json_dataclass_mixin.h"
 #include "json/json_schema.h"
+#include "json/read.h"
 
 namespace loggibud
 {
