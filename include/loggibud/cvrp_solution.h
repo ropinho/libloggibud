@@ -7,20 +7,14 @@ using std::string;
 using std::vector;
 
 #include "delivery.h"
-#include "json_dataclass_mixin.h"
+#include "cvrp_solution_vehicle.h"
 
 namespace loggibud
 {
-    class CVRPSolution : public JSONDataclassMixin<CVRPSolution> {
+    class CVRPSolution {
     public:
         string name;
-        vector<Delivery> deliveries;
-
-        CVRPSolution from_file(string filename) {
-            return CVRPSolution();
-        }
-
-        void to_file(string filename) {}
+        vector<CVRPSolutionVehicle> vehicles;
     };
 }
 
