@@ -1,4 +1,10 @@
+## Directories commonly used with cmake
 build/
 target/
 dist/
 cmake-build-debug/
+
+# Keep only C++ (and CMakeLists) files on examples directory
+examples/*
+!examples/*.cpp
+!example/CMakeLists.txt
