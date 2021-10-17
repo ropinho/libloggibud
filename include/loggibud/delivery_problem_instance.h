@@ -11,21 +11,13 @@ using std::vector;
 
 namespace loggibud
 {
-    class DeliveryProblemInstance
-    : public JSONDataclassMixin<DeliveryProblemInstance> 
-    {
+    class DeliveryProblemInstance {
     public:
         string name;
         string region;
         size_t max_hubs;
         size_t vehicle_capacity;
         vector<Delivery> deliveries;
-
-        DeliveryProblemInstance from_file(string filename) {
-            return DeliveryProblemInstance();
-        }
-
-        void to_file(string filename) {}
     };
 }
 
