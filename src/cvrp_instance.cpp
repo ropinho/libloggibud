@@ -1,10 +1,10 @@
 #include "../include/loggibud/cvrp_instance.h"
 
 loggibud::CVRPInstance loggibud::CVRPInstance::from_file(std::string filename) {
-    const std::string LOGGIBUD_SCHEMAS_DIR(std::getenv("LOGGIBUD_SCHEMAS_DIR"));
+    const std::string kLoggibudSchemasDir(std::getenv("LOGGIBUD_SCHEMAS_DIR"));
     std::ifstream file(filename);
 
-    if (LOGGIBUD_SCHEMAS_DIR.empty()) {
+    if (kLoggibudSchemasDir.empty()) {
         throw std::runtime_error("LOGGIBUD_SCHEMAS_DIR var is not set.");
     }
 
@@ -15,7 +15,7 @@ loggibud::CVRPInstance loggibud::CVRPInstance::from_file(std::string filename) {
         );
         file.close();
 
-        std::string schema_path = LOGGIBUD_SCHEMAS_DIR + "/cvrp_instance.schema.json";
+        std::string schema_path = kLoggibudSchemasDir + "/cvrp_instance.schema.json";
         
         CVRPInstance instance;
         rapidjson::Document d;

@@ -1,0 +1,8 @@
+set(Loggibud_INCLUDE_DIR "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@/loggibud")
+set(Loggibud_LIBRARY_DIR "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_LIBDIR@/")
+set(Loggibud_SCHEMAS_DIR "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_DATAROOTDIR@/loggibud/schemas")
+
+message(STATUS "@PROJECT_NAME@ found. Headers: ${Loggibud_INCLUDE_DIR}")
+
+include("${CMAKE_CURRENT_LIST_DIR}/LoggibudTargets.cmake")
+
