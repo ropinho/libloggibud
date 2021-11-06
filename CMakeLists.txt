@@ -82,7 +82,7 @@ configure_file(cmake/LoggibudConfig.cmake.in
   @ONLY
 )
 
-set(ConfigPackageLocation lib/cmake/Loggibud)
+set(ConfigPackageLocation ${CMAKE_INSTALL_DATAROOTDIR}/cmake/Loggibud)
 install(EXPORT LoggibudTargets
   FILE
     LoggibudTargets.cmake
