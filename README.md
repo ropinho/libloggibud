@@ -32,6 +32,19 @@ in a `dist` directory placed on root of repository folder.
 cmake -S . -B build -Wno-dev -DLOCAL=ON
 ```
 
+The project creates a CMake package that can be use in your `CMakeLists.txt`, as in the example below:
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+project(MyAwesomeProject)
+
+find_package(LoggiBUD REQUIRED)
+
+# ...
+
+target_link_libraries(myprogram PRIVATE Loggibud::loggibud)
+```
+
 ## Basic Usage
 
 The project aims to provide the same simplicity provided by LoggiBUD in Python,
