@@ -1,9 +1,11 @@
 #include "../include/loggibud/cvrp_instance.h"
 
 loggibud::CVRPInstance loggibud::CVRPInstance::from_file(std::string filename) {
-    const std::string kLoggibudSchemasDir(std::getenv("LOGGIBUD_SCHEMAS_DIR"));
-    std::ifstream file(filename);
+    const std::string kLoggibudSchemasDir = std::getenv("LOGGIBUD_SCHEMAS_DIR")
+        ? std::string(std::getenv("LOGGIBUD_SCHEMAS_DIR"))
+        : throw std::runtime_error("Var LOGGIBUD_SCHEMAS_DIR not found");
 
+    std::ifstream file(filename);
     if (kLoggibudSchemasDir.empty()) {
         throw std::runtime_error("LOGGIBUD_SCHEMAS_DIR var is not set.");
     }
