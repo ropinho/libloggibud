@@ -1,39 +1,38 @@
-#ifndef LOGGIBUD_CXX_CVRPSOLUTIONVEHICLE_H_
-#define LOGGIBUD_CXX_CVRPSOLUTIONVEHICLE_H_
+/**
+ * Copyright 2021 <Ronaldd Pinho> <ronaldppinho@gmail.com>
+ */
+#ifndef LOGGIBUD_CVRP_SOLUTION_VEHICLE_H_
+#define LOGGIBUD_CVRP_SOLUTION_VEHICLE_H_
 
-#include <string>
-using std::string;
+#include <loggibud/delivery.h>
+#include <loggibud/point.h>
+
 #include <vector>
-using std::vector;
 
-#include "point.h"
-#include "delivery.h"
+namespace loggibud {
+class CVRPSolutionVehicle {
+ public:
+  Point origin;
+  std::vector<Delivery> deliveries;
 
-namespace loggibud
-{
-    class CVRPSolutionVehicle {
-    public:
-        Point origin;
-        vector<Delivery> deliveries;
+  std::vector<Point> circuit() {
+    std::vector<Point> points;
+    points.push_back(origin);
+    for (Delivery &d : this->deliveries) {
+      points.push_back(d.point);
+    }
+    points.push_back(origin);
+    return points;
+  }
 
-        vector<Point> circuit() {
-            vector<Point> points;
-            points.push_back(origin);
-            for (Delivery &d : this->deliveries) {
-                points.push_back(d.point);
-            }
-            points.push_back(origin);
-            return points;
-        }
+  size_t occupation() {
+    size_t sum = 0;
+    for (Delivery &d : this->deliveries) {
+      sum += d.size;
+    }
+    return sum;
+  }
+};
+}  // namespace loggibud
 
-        size_t occupation() {
-            size_t sum = 0;
-            for (Delivery &d : this->deliveries) {
-                sum += d.size;
-            }
-            return sum;
-        }
-    };
-}
-
-#endif
+#endif  // LOGGIBUD_CVRP_SOLUTION_VEHICLE_H_

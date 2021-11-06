@@ -1,18 +1,18 @@
-#ifndef LOGGIBUD_CXX_DELIVERY_H_
-#define LOGGIBUD_CXX_DELIVERY_H_
+/**
+ * Copyright 2021 <Ronaldd Pinho>
+ */
+#ifndef LOGGIBUD_DELIVERY_H_
+#define LOGGIBUD_DELIVERY_H_
 
+#include <loggibud/point.h>
 #include <string>
-using std::string;
 
-#include "point.h"
+namespace loggibud {
+struct Delivery {
+  std::string id;
+  Point point;
+  size_t size;
+};
+}  // namespace loggibud
 
-namespace loggibud
-{
-    struct Delivery {
-        string id;
-        Point point;
-        size_t size;
-    };
-}
-
-#endif
+#endif  // LOGGIBUD_DELIVERY_H_

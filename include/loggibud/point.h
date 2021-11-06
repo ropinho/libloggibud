@@ -1,12 +1,14 @@
-#ifndef LOGGIBUD_CXX_POINT_H_
-#define LOGGIBUD_CXX_POINT_H_
+/**
+ * Copyright 2021 <Ronaldd Pinho>
+ */
+#ifndef LOGGIBUD_POINT_H_
+#define LOGGIBUD_POINT_H_
 
-namespace loggibud
-{
-    struct Point {
-        double lng;
-        double lat;
-    };
-}
+namespace loggibud {
+struct Point {
+  double lng;
+  double lat;
+};
+}  // namespace loggibud
 
-#endif
+#endif  // LOGGIBUD_POINT_H_
