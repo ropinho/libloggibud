@@ -54,4 +54,4 @@ int main(int argc, const char *argv[]) {
 
 ## License
 
-[GPLv3](https://www.gnu.org/licenses/gpl-3.0.pt-br.html)
+[MIT](https://opensource.org/licenses/MIT)
