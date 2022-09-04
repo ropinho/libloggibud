@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 
 project(LoggiBUD)
-set(Loggibud_VERSION 1.0.0)
+set(LoggiBUD_VERSION 1.0.0)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
@@ -24,7 +24,7 @@ add_library(loggibud ${LOGGIBUD_SOURCES})
 target_compile_options(loggibud PUBLIC -Wall -Wextra -Wunused)
 
 generate_export_header(loggibud)
-set_property(TARGET loggibud PROPERTY VERSION ${Loggibud_VERSION})
+set_property(TARGET loggibud PROPERTY VERSION ${LoggiBUD_VERSION})
 
 # Compile examples. Use -DBUILD_EXAMPLES=ON
 if(BUILD_EXAMPLES)
@@ -41,7 +41,7 @@ if(LOCAL)
 endif()
 
 
-install(TARGETS loggibud EXPORT LoggibudTargets
+install(TARGETS loggibud EXPORT LoggiBUDTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} 
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -68,24 +68,24 @@ install(# Headers (json)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggibudConfigVersion.cmake"
-  VERSION ${Loggibud_VERSION}
+  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggiBUDConfigVersion.cmake"
+  VERSION ${LoggiBUD_VERSION}
   COMPATIBILITY AnyNewerVersion
 )
 
-export(EXPORT LoggibudTargets
-  FILE "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggibudTargets.cmake"
+export(EXPORT LoggiBUDTargets
+  FILE "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggiBUDTargets.cmake"
   NAMESPACE Loggibud::
 )
-configure_file(cmake/LoggibudConfig.cmake.in
-  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggibudConfig.cmake"
+configure_file(cmake/LoggiBUDConfig.cmake.in
+  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggiBUDConfig.cmake"
   @ONLY
 )
 
 set(ConfigPackageLocation ${CMAKE_INSTALL_DATAROOTDIR}/cmake/Loggibud)
-install(EXPORT LoggibudTargets
+install(EXPORT LoggiBUDTargets
   FILE
-    LoggibudTargets.cmake
+    LoggiBUDTargets.cmake
   NAMESPACE
     Loggibud::
   DESTINATION
@@ -93,8 +93,8 @@ install(EXPORT LoggibudTargets
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggibudConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggibudConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggiBUDConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/Loggibud/LoggiBUDConfigVersion.cmake"
   DESTINATION
     ${ConfigPackageLocation}
   COMPONENT
